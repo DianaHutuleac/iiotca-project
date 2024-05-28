@@ -1,3 +1,6 @@
+// app/(tabs)/borrowTab/PasswordScrren.js
+
+
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button, Alert } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';

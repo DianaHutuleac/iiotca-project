@@ -36,8 +36,16 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
+        name="profileTab"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="book-reader" color={color} />,
+        }}
+      />
+      <Tabs.Screen
         name="profile"
         options={{
+          href: null,
           title: 'Profile',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="book-reader" color={color} />,
         }}
