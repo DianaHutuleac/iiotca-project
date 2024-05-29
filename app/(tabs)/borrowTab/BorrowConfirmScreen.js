@@ -1,5 +1,3 @@
-// app/(tabs)/borrowTab/BorrowConfirmScreen.js
-
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Button, Alert, TextInput } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
