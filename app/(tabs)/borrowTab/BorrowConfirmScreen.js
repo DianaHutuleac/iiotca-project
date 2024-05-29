@@ -5,6 +5,18 @@ import { View, Text, StyleSheet, Image, Button, Alert, TextInput } from 'react-n
 import { useNavigation, useRoute } from '@react-navigation/native';
 import * as LocalAuthentication from 'expo-local-authentication';
 import { scheduleNotification } from '../../utils/notifications';
+import * as Notifications from 'expo-notifications';
+
+async function schedulePushNotification(notifTitle, message) {
+  await Notifications.scheduleNotificationAsync({
+    content: {
+      title: notifTitle,
+      body: message,
+      data: { data: 'goes here' },
+    },
+    trigger: { seconds: 2 },
+  });
+}
 
 export default function BorrowConfirmScreen() {
   const route = useRoute();
@@ -44,6 +56,7 @@ export default function BorrowConfirmScreen() {
     const returnDate = new Date();
     returnDate.setDate(returnDate.getDate() + 14); // Set return date to two weeks from today
 
+    await schedulePushNotification('Return Book Reminder',`Please return the book "${book.title}" before ${returnDate.toDateString()}.`  );
     await scheduleNotification(
       'Return Book Reminder',
       `Please return the book "${book.title}" before ${returnDate.toDateString()}.`,

@@ -28,6 +28,15 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b3929643-9b04-450d-91a5-6b99000ed87b"
+      }
+    },
+    "owner": "xaty"
   }
 }
