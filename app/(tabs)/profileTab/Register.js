@@ -12,7 +12,7 @@ export default function Register({ setUser, setIsLoggedIn }) {
   console.log('Register props:', { setUser, setIsLoggedIn });
 
   const handleRegister = () => {
-    // Simulate saving user data
+    // Simulate saving user data.
     setUser({ username, name, email, activity: [] });
     setIsLoggedIn(true);
     navigation.navigate('Profile');

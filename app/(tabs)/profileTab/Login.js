@@ -8,7 +8,7 @@ export default function Login({ setUser, setIsLoggedIn }) {
   const navigation = useNavigation();
 
   const handleLogin = () => {
-    // Mock authentication logic
+    // Mock authentication logic.
     if (username === 'johndoe' && password === 'password123') {
       setUser({
         username: 'johndoe',

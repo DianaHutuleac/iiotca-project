@@ -3,7 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Profile from '../profile';
 import Login from './Login';
 import Register from './Register';
-
+//profile
 const Stack = createNativeStackNavigator();
 
 export default function ProfileLayout({ user, setUser, isLoggedIn, setIsLoggedIn }) {

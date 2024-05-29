@@ -1,7 +1,7 @@
 // api.js
 // Function to fetch book description from the API
 export async function fetchBookDescription(bookTitle) {
-    const apiKey = 'sk-proj-GxrFo3N9M22SNtUHHLpIT3BlbkFJEnjSVFPfBji2ivNZS7QI';
+    const apiKey = process.env.REACT_APP_OPENAI_API_KEY;
     const apiUrl = `https://api.openai.com/v1/engines/davinci/completions/`;
   
     /*

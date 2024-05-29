@@ -1,22 +1,36 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
-export default function Profile({ user, setIsLoggedIn }) {
+// Mock user data for demonstration
+const mockUserData = {
+  username: 'johndoe',
+  password: 'password123',
+  name: 'John Doe',
+  activity: [
+    { id: '1', description: 'Borrowed "Pride and Prejudice" on 2024-05-01' },
+    { id: '2', description: 'Returned "Pride and Prejudice" on 2024-05-15' },
+  ],
+};
+
+// Create a context for user state
+const UserContext = React.createContext();
+
+export default function Tab() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [user, setUser] = useState(null);
   const navigation = useNavigation();
 
   const handleLogout = () => {
     setIsLoggedIn(false);
-    navigation.navigate('ProfileTab');
+    setUser(null);
   };
 
-  if (user) {
+  if (isLoggedIn) {
     return (
       <View style={styles.container}>
         <Text style={styles.heading}>Welcome, {user.name}!</Text>
-        <Text style={styles.subheading}>Email: {user.email}</Text>
-        <Text style={styles.subheading}>Username: {user.username}</Text>
-        <Text style={styles.activityHeading}>Recent Activity:</Text>
+        <Text style={styles.subheading}>Recent Activity:</Text>
         {user.activity.map((item) => (
           <Text key={item.id} style={styles.activity}>{item.description}</Text>
         ))}
@@ -50,12 +64,6 @@ const styles = StyleSheet.create({
   subheading: {
     fontSize: 18,
     marginBottom: 10,
-    textAlign: 'center',
-  },
-  activityHeading: {
-    fontSize: 20,
-    fontWeight: 'bold',
-    marginTop: 20,
     textAlign: 'center',
   },
   activity: {

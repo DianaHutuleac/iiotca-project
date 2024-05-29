@@ -1,5 +1,3 @@
-// app/(tabs)/borrowTab/_layout.js
-
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import BorrowPage from '../borrow.js';
