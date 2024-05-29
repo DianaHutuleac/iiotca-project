@@ -109,7 +109,7 @@ export default function BorrowPage() {
             <Text style={styles.subtitle}>{book.subtitle}</Text>
             <View style={styles.buttonContainer}>
               <Button title="Borrow" onPress={() => borrowBook(book)} />
-              <Button title="Generate Description" onPress={() => generateDescription(book)} />
+              <Button title="Description" onPress={() => generateDescription(book)} />
             </View>
           </View>
         </View>
@@ -165,3 +165,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, Button, Image, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { GluestackUIProvider, Heading, Box, FlatList, HStack, VStack } from '@gluestack-ui/themed';
@@ -126,7 +126,9 @@ export default function Tab() {
             Due Date: {item.dueDate}
           </Text>
         </VStack>
-        <Button title="Return Book" onPress={() => returnBook(item)} />
+        <View style={styles.buttonContainer}>
+          <Button title="Return" onPress={() => returnBook(item)} />
+        </View>
       </HStack>
     </Box>
   );
@@ -174,5 +176,9 @@ const styles = StyleSheet.create({
     width: 50,
     height: 75,
     marginRight: 10,
+  },
+  buttonContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
