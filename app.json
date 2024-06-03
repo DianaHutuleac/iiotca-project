@@ -15,7 +15,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "config": {
+        "useNonExemptEncryption": false
+      },
+      "infoPlist": {
+        "NSFaceIDUsageDescription": "We need to use Face ID to authenticate your identity."
+      }
     },
     "android": {
       "adaptiveIcon": {
