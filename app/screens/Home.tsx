@@ -2,7 +2,7 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome5';
 import { Tabs } from 'expo-router';
 //layout
-export default function TabLayout() {
+export default function Home() {
   return (
     <Tabs screenOptions={{ tabBarActiveTintColor: '#A295E1', headerShown: false }}>
       <Tabs.Screen
@@ -51,6 +51,9 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="book-reader" color={color} />,
         }}
       />
+      
     </Tabs>
   );
 }
+
+//export default TabLayout;

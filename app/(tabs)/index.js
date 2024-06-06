@@ -1,16 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-import { GluestackUIProvider, Heading, Box, FlatList, HStack, VStack} from '@gluestack-ui/themed';
+import { GluestackUIProvider, Heading, Box, FlatList, HStack, VStack } from '@gluestack-ui/themed';
 import { config } from '@gluestack-ui/config';
 import LibraryCard from '../components/LibraryCard.js';
+import axios from 'axios';
+import { useAuth } from '../context/AuthContext';
 
-export default function Tab() {
+export default function FirstHome() {
+  const { authState } = useAuth();
+  const [userInfo, setUserInfo] = useState({ email: '' });
   const data = [
     { id: '1', title: 'Item 1', subtitle: 'Description for Item 1', timestamp: '10:00 AM' },
     { id: '2', title: 'Item 2', subtitle: 'Description for Item 2', timestamp: '11:00 AM' },
     { id: '3', title: 'Item 3', subtitle: 'Description for Item 3', timestamp: '12:00 PM' },
     // Add more items as needed
   ];
+
+  useEffect(() => {
+    const fetchUserInfo = async () => {
+      try {
+        const response = await axios.get(`http://localhost:3000/user-info`, {
+          headers: {
+            Authorization: `Bearer ${authState.token}`,
+          },
+        });
+        setUserInfo(response.data);
+      } catch (error) {
+        console.error('Error fetching user info:', error);
+      }
+    };
+
+    if (authState.token) {
+      fetchUserInfo();
+    }
+  }, [authState.token]);
 
   const renderItem = ({ item }) => (
     <Box
@@ -54,10 +77,10 @@ export default function Tab() {
   return (
     <GluestackUIProvider config={config}>
       <View style={{ flex: 0 }}>
-        <Text style={{ fontSize: 20, padding: 20, fontWeight: 'bold' }}>Hello [User]!</Text></View>
+        <Text style={{ fontSize: 20, padding: 20, fontWeight: 'bold' }}>Hello {userInfo.email}!</Text></View>
         <View style={styles.container}>
           <LibraryCard
-            name="John Doe"
+            name={userInfo.email}
             id="123456789"
             expirationDate="2024-12-31"
           />
@@ -86,4 +109,3 @@ const styles = StyleSheet.create({
     backgroundColor: '#f0f0f0',
   },
 });
-

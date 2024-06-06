@@ -36,7 +36,7 @@ const borrowedBooksData = [
   }
 ];
 
-export default function Tab() {
+export default function Return() {
   const [modalVisible, setModalVisible] = useState(false);
   const [scanModalVisible, setScanModalVisible] = useState(false);
   const [selectedBook, setSelectedBook] = useState(null);
