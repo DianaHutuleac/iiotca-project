@@ -23,7 +23,7 @@ export default function BorrowPage() {
 
   const fetchBooksData = async () => {
     try {
-      const response = await fetch('http://13.48.78.193:3000/books');
+      const response = await fetch('http://localhost:3000/books');
       const data = await response.json();
       setAvailableBooksData(data);
     } catch (error) {
@@ -36,7 +36,7 @@ export default function BorrowPage() {
     Alert.alert('Please scan your RFID card.');
 
     try {
-      const response = await fetch('http://13.48.78.193:3000/borrow', {
+      const response = await fetch('http://localhost:3000/borrow', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
