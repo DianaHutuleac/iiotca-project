@@ -16,6 +16,9 @@
     ],
     "ios": {
       "supportsTablet": true,
+      "config": {
+        "useNonExemptEncryption": false
+      },
       "infoPlist": {
         "NSFaceIDUsageDescription": "We need to use Face ID to authenticate your identity."
       }
@@ -31,6 +34,15 @@
     },
     "plugins": [
       "expo-router"
-    ]
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "b3929643-9b04-450d-91a5-6b99000ed87b"
+      }
+    },
+    "owner": "xaty"
   }
 }
