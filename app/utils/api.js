@@ -28,8 +28,10 @@ export async function fetchBookDescription(bookTitle) {
     return data.choices[0].text.trim(); // Extract generated text from API response */
 
     console.log("test3")
+    
 
     try {
+      console.log(process.env.REACT_APP_OPENAI_API_KEY);
         const response = await fetch('https://api.openai.com/v1/chat/completions', {
           method: 'POST',
           headers: {
